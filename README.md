@@ -61,7 +61,7 @@ This approach enables TravelTide to move away from generic rewards and toward a 
 * PostgreSQL/Beekeeper
 * Jupyter Notebook/Googlecolab
 * Pandas, NumPy, Scikit-learn
-* Tableau / Data Visualization Tools?????
+
 
 
 ## 📁 Repository Structure (Example)
