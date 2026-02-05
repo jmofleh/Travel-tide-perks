@@ -1,4 +1,4 @@
-# Personalized Loyalty Strategy Using Customer Analytics at TravelTide(still under refining)
+# Personalized Loyalty Strategy Using Customer Analytics at TravelTide
 
 A data-driven project that leverages customer analytics and machine learning to design a highly personalized loyalty program for TravelTide. The analysis uncovers meaningful customer segments and maps them to reward offerings that align with real user behavior, supporting higher engagement, retention, and long-term customer value.
 
