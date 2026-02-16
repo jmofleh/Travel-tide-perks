@@ -8,21 +8,18 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           lfs: true
 
-      - name: Install LFS and Fix Pointers
-        run: |
-          git lfs install
-          git lfs track "data/processed/*.csv"
-          git add .gitattributes
-          # This line converts existing large files into LFS pointers
-          git lfs migrate import --everything --include="*.csv"
-
-      - name: Push to hub
+      - name: Install LFS and Push
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
+          git lfs install
+          # Tell Git to track the specific large files
+          git lfs track "data/processed/*.csv"
+          # Force the push using the Write Token
           git push --force "https://JAM14:$HF_TOKEN@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
