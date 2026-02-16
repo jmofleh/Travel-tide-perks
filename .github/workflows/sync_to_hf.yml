@@ -16,5 +16,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-        git push --force "https://JAM14:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
-
+          git push --force "https://JAM14:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
