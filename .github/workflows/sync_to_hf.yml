@@ -13,10 +13,16 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Install and Push LFS
+      - name: Install LFS and Fix Pointers
+        run: |
+          git lfs install
+          git lfs track "data/processed/*.csv"
+          git add .gitattributes
+          # This line converts existing large files into LFS pointers
+          git lfs migrate import --everything --include="*.csv"
+
+      - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git lfs install
-          git lfs track "*.csv"
           git push --force "https://JAM14:$HF_TOKEN@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
