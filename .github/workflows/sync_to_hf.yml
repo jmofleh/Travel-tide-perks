@@ -27,4 +27,11 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force "https://JAM14:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
+               - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git lfs install
+          git lfs track "data/processed/*.csv"
+          git push --force "https://JAM14:$HF_TOKEN@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
+
