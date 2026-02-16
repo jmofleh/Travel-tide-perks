@@ -15,6 +15,6 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-       run: git push --force "https://Mir-Jawad-Ahmad-Mofleh:$HF_TOKEN@huggingface.co/spaces/Mir-Jawad-Ahmad-Mofleh/travel_tide_perks" main
+               run: git push --force "https://Mir-Jawad-Ahmad-Mofleh:$HF_TOKEN@huggingface.co/spaces/Mir-Jawad-Ahmad-Mofleh/travel_tide_perks" main
 
 
