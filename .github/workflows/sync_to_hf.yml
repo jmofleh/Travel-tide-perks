@@ -12,26 +12,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      
-      # ADD THIS SECTION
-      - name: Setup Git LFS
-        run: |
-          git lfs install
-          git lfs track "*.csv"
-          git add .gitattributes
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git commit -m "Add Git LFS configuration" || echo "No changes to commit"
           
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-               - name: Push to hub
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
           git lfs install
-          git lfs track "data/processed/*.csv"
           git push --force "https://JAM14:$HF_TOKEN@huggingface.co/spaces/JAM14/travel_tide_perks" HEAD:refs/heads/main
-
